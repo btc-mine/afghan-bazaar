@@ -40,7 +40,7 @@ window.APP_CONFIG = {
     sellerFreeDays: 30,            // free trial days
     currency: "AFN",
     defaultLanguage: "fa",         // "fa" (Dari) or "en"
-    supportPhone: "+93781780963",  // shown in help texts
+    supportPhone: "781780963",  // shown in help texts
     platformName: {
       fa: "بازار افغان",
       en: "Afghan Bazaar"
