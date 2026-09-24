@@ -1,717 +1,2228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<meta name="theme-color" content="#0e7a5f">
-<title>بازار آنلاین کابل | بخر، بفروش، جستجو کن</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#eef2f0;
-  --card:#ffffff;
-  --primary:#0e7a5f;
-  --primary-2:#0a5b46;
-  --primary-3:#084535;
-  --accent:#e0a72a;
-  --text:#12211c;
-  --muted:#6d7d78;
-  --line:#e2e8e5;
-  --radius:16px;
-  --shadow:0 2px 12px rgba(16,60,45,.08);
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0}
-body{
-  font-family:'Vazirmatn',Tahoma,'Segoe UI',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.75;
-  font-size:15px;
-  padding-bottom:50px;
-  overflow-x:hidden;
-}
-button,input,select,textarea{font-family:inherit}
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+    <meta name="theme-color" content="#0e7a5f" />
+    <title>بازار آنلاین کابل | بخر، بفروش، جستجو کن</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #eef2f0;
+        --card: #ffffff;
+        --primary: #0e7a5f;
+        --primary-2: #0a5b46;
+        --primary-3: #084535;
+        --accent: #e0a72a;
+        --text: #12211c;
+        --muted: #6d7d78;
+        --line: #e2e8e5;
+        --danger: #c0392b;
+        --radius: 16px;
+        --shadow: 0 2px 12px rgba(16, 60, 45, 0.08);
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        font-size: 15px;
+        padding-bottom: 50px;
+        overflow-x: hidden;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font-family: inherit;
+      }
 
-/* ================= هدر ================= */
-.app-header{
-  background:linear-gradient(140deg,#0e7a5f 0%,#0a5b46 55%,#084535 100%);
-  color:#fff;
-  padding:20px 16px 22px;
-  border-radius:0 0 26px 26px;
-  box-shadow:0 8px 24px rgba(10,91,70,.28);
-  position:relative;
-  overflow:hidden;
-}
-.app-header::after{
-  content:"";
-  position:absolute;width:220px;height:220px;border-radius:50%;
-  background:rgba(255,255,255,.06);
-  top:-110px;left:-60px;
-}
-.header-inner{max-width:720px;margin:0 auto;position:relative;z-index:2}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{
-  width:48px;height:48px;flex:0 0 48px;
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:15px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;
-}
-.brand h1{margin:0;font-size:19px;font-weight:700;letter-spacing:.2px}
-.brand p{margin:2px 0 0;font-size:12px;color:rgba(255,255,255,.82);line-height:1.6}
+      /* ================= هدر ================= */
+      .app-header {
+        background: linear-gradient(
+          140deg,
+          #0e7a5f 0%,
+          #0a5b46 55%,
+          #084535 100%
+        );
+        color: #fff;
+        padding: 20px 16px 22px;
+        border-radius: 0 0 26px 26px;
+        box-shadow: 0 8px 24px rgba(10, 91, 70, 0.28);
+        position: relative;
+        overflow: hidden;
+      }
+      .app-header::after {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        top: -110px;
+        left: -60px;
+      }
+      .header-inner {
+        max-width: 720px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+      .top-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        min-width: 0;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+      .brand h1 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+      .brand p {
+        margin: 2px 0 0;
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.6;
+      }
 
-/* ================= جستجو ================= */
-.search-wrap{
-  margin-top:16px;
-  display:flex;align-items:center;gap:6px;
-  background:#fff;
-  border-radius:15px;
-  padding:4px 12px;
-  box-shadow:0 6px 18px rgba(0,0,0,.15);
-  transition:box-shadow .2s;
-}
-.search-wrap:focus-within{box-shadow:0 6px 22px rgba(0,0,0,.22),0 0 0 3px rgba(224,167,42,.45)}
-.search-icon{font-size:16px;opacity:.55}
-.search-wrap input{
-  flex:1;border:0;outline:0;background:transparent;
-  padding:12px 4px;font-size:15px;color:var(--text);
-}
-.search-wrap input::placeholder{color:#9aa8a4}
-.clear-btn{
-  border:0;background:#eef2f0;color:#5c6b66;
-  width:26px;height:26px;border-radius:50%;
-  font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  flex:0 0 26px;
-}
+      .auth-area {
+        display: flex;
+        gap: 6px;
+        flex: 0 0 auto;
+      }
+      .auth-btn {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        padding: 7px 13px;
+        border-radius: 10px;
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.15s;
+      }
+      .auth-btn:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .auth-btn.solid {
+        background: #fff;
+        color: var(--primary-2);
+        border-color: #fff;
+      }
+      .user-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        padding: 5px 10px 5px 5px;
+        max-width: 170px;
+      }
+      .user-chip .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #fff;
+        color: var(--primary-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 13px;
+        flex: 0 0 30px;
+      }
+      .user-chip .uinfo {
+        min-width: 0;
+        flex: 1;
+      }
+      .user-chip .uname {
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.3;
+      }
+      .user-chip .ulink {
+        font-size: 10.5px;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        text-decoration: underline;
+        line-height: 1.3;
+      }
+      .user-chip .ulink:hover {
+        color: #fff;
+      }
 
-/* ================= ساختار کلی ================= */
-.container{max-width:720px;margin:0 auto;padding:16px}
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:14px;
-  margin-bottom:16px;
-}
+      /* ================= جستجو ================= */
+      .search-wrap {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 4px 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        transition: box-shadow 0.2s;
+      }
+      .search-wrap:focus-within {
+        box-shadow:
+          0 6px 22px rgba(0, 0, 0, 0.22),
+          0 0 0 3px rgba(224, 167, 42, 0.45);
+      }
+      .search-icon {
+        font-size: 16px;
+        opacity: 0.55;
+      }
+      .search-wrap input {
+        flex: 1;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        padding: 12px 4px;
+        font-size: 15px;
+        color: var(--text);
+      }
+      .search-wrap input::placeholder {
+        color: #9aa8a4;
+      }
+      .clear-btn {
+        border: 0;
+        background: #eef2f0;
+        color: #5c6b66;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        font-size: 13px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 26px;
+      }
 
-/* ================= باکس نوشتن آگهی ================= */
-.composer-trigger{
-  display:flex;align-items:center;gap:10px;width:100%;
-  background:#f4f7f6;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:9px 12px;
-  font-size:14.5px;
-  color:var(--muted);
-  cursor:pointer;
-  text-align:right;
-  transition:background .15s,border-color .15s;
-}
-.composer-trigger:active{background:#eaf0ee}
-.plus-circle{
-  width:34px;height:34px;flex:0 0 34px;border-radius:50%;
-  background:linear-gradient(140deg,var(--primary),var(--primary-2));
-  color:#fff;display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:600;
-  box-shadow:0 3px 8px rgba(14,122,95,.35);
-}
+      /* ================= ساختار کلی ================= */
+      .container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      .card {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 14px;
+        margin-bottom: 16px;
+      }
 
-/* ================= فورم ================= */
-.post-form{margin-top:4px;animation:fade .25s ease}
-@keyframes fade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.field{margin-bottom:12px}
-.field label{display:block;font-size:13px;font-weight:600;color:#3c4b46;margin-bottom:6px}
-input[type=text],input[type=tel],select,textarea{
-  width:100%;padding:11px 12px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  font-size:15px;background:#fbfcfc;color:var(--text);
-  outline:none;transition:border-color .15s,box-shadow .15s,background .15s;
-}
-textarea{resize:vertical;min-height:70px;line-height:1.7}
-input:focus,select:focus,textarea:focus{
-  border-color:var(--primary);background:#fff;
-  box-shadow:0 0 0 3px rgba(14,122,95,.13);
-}
-select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#7d8b86 50%),linear-gradient(135deg,#7d8b86 50%,transparent 50%);background-position:calc(0% + 16px) calc(50% + 2px),calc(0% + 21px) calc(50% + 2px);background-size:5px 5px,5px 5px;background-repeat:no-repeat}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:400px){.row2{grid-template-columns:1fr}}
+      /* ================= باکس نوشتن آگهی ================= */
+      .composer-trigger {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        background: #f4f7f6;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 12px;
+        font-size: 14.5px;
+        color: var(--muted);
+        cursor: pointer;
+        text-align: right;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .composer-trigger:active {
+        background: #eaf0ee;
+      }
+      .plus-circle {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        border-radius: 50%;
+        background: linear-gradient(140deg, var(--primary), var(--primary-2));
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 600;
+        box-shadow: 0 3px 8px rgba(14, 122, 95, 0.35);
+      }
+      .login-notice {
+        background: #fdf7ea;
+        border: 1px dashed #f0d79a;
+        border-radius: 12px;
+        padding: 10px 13px;
+        font-size: 12.5px;
+        color: #a9761a;
+        margin-top: 10px;
+        text-align: center;
+      }
+      .login-notice a {
+        color: var(--primary-2);
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: underline;
+      }
 
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{position:relative;cursor:pointer}
-.chip input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
-.chip span{
-  display:inline-block;padding:8px 15px;border-radius:999px;
-  border:1px solid var(--line);background:#fff;font-size:13px;
-  transition:all .15s;white-space:nowrap;
-}
-.chip input:checked + span{
-  background:var(--primary);border-color:var(--primary);color:#fff;
-  box-shadow:0 3px 10px rgba(14,122,95,.3);
-}
-.hint{font-size:12px;color:var(--muted);margin:8px 0 0;line-height:1.7}
+      /* ================= فورم ================= */
+      .post-form {
+        margin-top: 4px;
+        animation: fade 0.25s ease;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .field {
+        margin-bottom: 12px;
+      }
+      .field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #3c4b46;
+        margin-bottom: 6px;
+      }
+      input[type="text"],
+      input[type="tel"],
+      input[type="email"],
+      input[type="password"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        font-size: 15px;
+        background: #fbfcfc;
+        color: var(--text);
+        outline: none;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s,
+          background 0.15s;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 70px;
+        line-height: 1.7;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--primary);
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(14, 122, 95, 0.13);
+      }
+      select {
+        appearance: none;
+        background-image:
+          linear-gradient(45deg, transparent 50%, #7d8b86 50%),
+          linear-gradient(135deg, #7d8b86 50%, transparent 50%);
+        background-position:
+          calc(0% + 16px) calc(50% + 2px),
+          calc(0% + 21px) calc(50% + 2px);
+        background-size:
+          5px 5px,
+          5px 5px;
+        background-repeat: no-repeat;
+      }
+      .row2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      @media (max-width: 400px) {
+        .row2 {
+          grid-template-columns: 1fr;
+        }
+      }
 
-.form-actions{display:flex;gap:10px;margin-top:16px}
-.btn{
-  flex:1;border:0;border-radius:13px;padding:13px 16px;
-  font-size:15px;font-weight:600;cursor:pointer;transition:transform .1s,filter .15s;
-}
-.btn:active{transform:scale(.98)}
-.btn.primary{
-  background:linear-gradient(140deg,var(--primary),var(--primary-2));
-  color:#fff;box-shadow:0 5px 16px rgba(14,122,95,.32);
-}
-.btn.ghost{background:#eef2f0;color:#4a5a55;flex:0 0 auto;padding:13px 20px}
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        position: relative;
+        cursor: pointer;
+      }
+      .chip input {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+      .chip span {
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #fff;
+        font-size: 13px;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .chip input:checked + span {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+        box-shadow: 0 3px 10px rgba(14, 122, 95, 0.3);
+      }
+      .hint {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 8px 0 0;
+        line-height: 1.7;
+      }
 
-/* ================= فید ================= */
-.feed-head{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 10px}
-.feed-head h2{margin:0;font-size:16px;font-weight:700}
-.count{font-size:12px;color:var(--muted);background:#fff;padding:3px 10px;border-radius:999px;box-shadow:var(--shadow)}
-.filter-chips{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 12px;scrollbar-width:none}
-.filter-chips::-webkit-scrollbar{display:none}
-.fchip{
-  flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#4a5a55;
-  padding:7px 14px;border-radius:999px;font-size:13px;cursor:pointer;
-  transition:all .15s;white-space:nowrap;
-}
-.fchip.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 3px 10px rgba(14,122,95,.28)}
+      .form-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .btn {
+        flex: 1;
+        border: 0;
+        border-radius: 13px;
+        padding: 13px 16px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.1s,
+          filter 0.15s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+      .btn:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      .btn.primary {
+        background: linear-gradient(140deg, var(--primary), var(--primary-2));
+        color: #fff;
+        box-shadow: 0 5px 16px rgba(14, 122, 95, 0.32);
+      }
+      .btn.ghost {
+        background: #eef2f0;
+        color: #4a5a55;
+        flex: 0 0 auto;
+        padding: 13px 20px;
+      }
+      .btn.danger {
+        background: #fdecea;
+        color: var(--danger);
+      }
+      .spinner {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+        border-top-color: #fff;
+        animation: spin 0.7s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-.posts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:580px){.posts{grid-template-columns:repeat(3,1fr)}}
-.post{
-  background:#fff;border:1px solid #eef2f0;border-radius:15px;
-  box-shadow:var(--shadow);padding:12px;cursor:pointer;
-  display:flex;flex-direction:column;gap:5px;
-  transition:transform .12s,box-shadow .12s;
-  animation:fade .25s ease;
-}
-.post:active{transform:scale(.975)}
-.post-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
-.cat-emoji{
-  width:36px;height:36px;border-radius:11px;background:#f1f6f4;
-  display:flex;align-items:center;justify-content:center;font-size:19px;
-}
-.badge{
-  font-size:10.5px;padding:3px 9px;border-radius:999px;font-weight:600;
-  background:#e8f4ef;color:#0e7a5f;white-space:nowrap;
-}
-.badge.used{background:#fdf1dd;color:#a9761a}
-.post-title{
-  margin:2px 0 0;font-size:14px;font-weight:600;line-height:1.6;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-  min-height:44px;
-}
-.post-price{font-size:14px;font-weight:700;color:var(--primary-2)}
-.post-meta{font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:1px;margin-top:auto}
-.post-meta span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      /* ================= فید ================= */
+      .feed-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 4px 2px 10px;
+      }
+      .feed-head h2 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .count {
+        font-size: 12px;
+        color: var(--muted);
+        background: #fff;
+        padding: 3px 10px;
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+      }
+      .filter-chips {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 2px 2px 12px;
+        scrollbar-width: none;
+      }
+      .filter-chips::-webkit-scrollbar {
+        display: none;
+      }
+      .fchip {
+        flex: 0 0 auto;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: #4a5a55;
+        padding: 7px 14px;
+        border-radius: 999px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .fchip.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+        box-shadow: 0 3px 10px rgba(14, 122, 95, 0.28);
+      }
 
-.empty{
-  grid-column:1/-1;text-align:center;padding:40px 16px;color:var(--muted);
-  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);
-}
-.empty .big{font-size:38px;display:block;margin-bottom:8px}
-.empty p{margin:4px 0;font-size:14px}
+      .posts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      @media (min-width: 580px) {
+        .posts {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .post {
+        background: #fff;
+        border: 1px solid #eef2f0;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        padding: 12px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        transition:
+          transform 0.12s,
+          box-shadow 0.12s;
+        animation: fade 0.25s ease;
+        position: relative;
+      }
+      .post:active {
+        transform: scale(0.975);
+      }
+      .post-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+      }
+      .cat-emoji {
+        width: 36px;
+        height: 36px;
+        border-radius: 11px;
+        background: #f1f6f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 19px;
+      }
+      .badge {
+        font-size: 10.5px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-weight: 600;
+        background: #e8f4ef;
+        color: #0e7a5f;
+        white-space: nowrap;
+      }
+      .badge.used {
+        background: #fdf1dd;
+        color: #a9761a;
+      }
+      .badge.admin {
+        background: #fdecea;
+        color: #c0392b;
+      }
+      .post-title {
+        margin: 2px 0 0;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 44px;
+      }
+      .post-price {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary-2);
+      }
+      .post-meta {
+        font-size: 11px;
+        color: var(--muted);
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        margin-top: auto;
+      }
+      .post-meta span {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
 
-/* ================= مودال جزئیات ================= */
-.modal{
-  position:fixed;inset:0;z-index:100;
-  background:rgba(8,30,24,.55);
-  backdrop-filter:blur(3px);
-  display:none;align-items:flex-end;justify-content:center;
-}
-.modal.open{display:flex}
-.sheet{
-  background:#fff;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;
-  border-radius:22px 22px 0 0;padding:20px 18px 26px;
-  animation:up .28s cubic-bezier(.2,.8,.3,1);
-  position:relative;
-}
-@keyframes up{from{transform:translateY(40px);opacity:.5}to{transform:none;opacity:1}}
-@media(min-width:600px){
-  .modal{align-items:center}
-  .sheet{border-radius:22px}
-}
-.sheet-close{
-  position:absolute;top:12px;left:12px;
-  border:0;background:#eef2f0;color:#5c6b66;
-  width:32px;height:32px;border-radius:50%;font-size:15px;cursor:pointer;
-}
-.sheet .cat-emoji{width:52px;height:52px;font-size:26px;border-radius:15px}
-.detail-title{font-size:19px;font-weight:700;margin:12px 0 6px;line-height:1.6}
-.detail-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.detail-price{
-  font-size:20px;font-weight:700;color:var(--primary-2);
-  background:#f1f8f5;border-radius:13px;padding:11px 14px;margin-bottom:14px;
-  display:flex;justify-content:space-between;align-items:center;
-}
-.detail-price small{font-size:11.5px;font-weight:500;color:var(--muted)}
-.detail-desc{
-  background:#fafcfb;border:1px solid var(--line);border-radius:13px;
-  padding:12px;font-size:14px;line-height:1.9;white-space:pre-wrap;word-break:break-word;
-  margin-bottom:14px;
-}
-.info-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.info-row{display:flex;align-items:center;gap:9px;font-size:13.5px;color:#3c4b46}
-.info-row .ico{
-  width:30px;height:30px;flex:0 0 30px;border-radius:9px;background:#f1f6f4;
-  display:flex;align-items:center;justify-content:center;font-size:14px;
-}
-.contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.contact-actions .btn{padding:13px 10px;font-size:14px}
-.btn.call{background:linear-gradient(140deg,#0e7a5f,#0a5b46);color:#fff;box-shadow:0 5px 16px rgba(14,122,95,.3)}
-.btn.wa{background:linear-gradient(140deg,#25d366,#128c7e);color:#fff;box-shadow:0 5px 16px rgba(18,140,126,.3);text-decoration:none;display:flex;align-items:center;justify-content:center}
-.btn.copy{background:#eef2f0;color:#3c4b46;grid-column:1/-1}
-.expire-note{
-  margin-top:14px;font-size:12px;color:#a9761a;background:#fdf7ea;
-  border:1px dashed #f0d79a;border-radius:12px;padding:9px 12px;text-align:center;
-}
+      .empty {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 40px 16px;
+        color: var(--muted);
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .empty .big {
+        font-size: 38px;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .empty p {
+        margin: 4px 0;
+        font-size: 14px;
+      }
 
-/* ================= توست ================= */
-.toast{
-  position:fixed;bottom:24px;left:50%;transform:translate(-50%,26px);
-  background:#12211c;color:#fff;padding:11px 20px;border-radius:999px;
-  font-size:13.5px;opacity:0;pointer-events:none;transition:all .28s;
-  z-index:300;max-width:88vw;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.3);
-}
-.toast.show{opacity:1;transform:translate(-50%,0)}
+      .loading-feed {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 40px 16px;
+        color: var(--muted);
+      }
+      .loading-feed .spinner {
+        border-color: rgba(14, 122, 95, 0.25);
+        border-top-color: var(--primary);
+        width: 26px;
+        height: 26px;
+        margin: 0 auto 10px;
+      }
 
-/* ================= فوتر ================= */
-.footer{
-  text-align:center;font-size:11.5px;color:#8a9793;
-  padding:22px 18px 10px;line-height:2;
-}
-</style>
-</head>
-<body>
+      /* ================= مودال جزئیات ================= */
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: rgba(8, 30, 24, 0.55);
+        backdrop-filter: blur(3px);
+        display: none;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .sheet {
+        background: #fff;
+        width: 100%;
+        max-width: 560px;
+        max-height: 92vh;
+        overflow-y: auto;
+        border-radius: 22px 22px 0 0;
+        padding: 20px 18px 26px;
+        animation: up 0.28s cubic-bezier(0.2, 0.8, 0.3, 1);
+        position: relative;
+      }
+      @keyframes up {
+        from {
+          transform: translateY(40px);
+          opacity: 0.5;
+        }
+        to {
+          transform: none;
+          opacity: 1;
+        }
+      }
+      @media (min-width: 600px) {
+        .modal {
+          align-items: center;
+        }
+        .sheet {
+          border-radius: 22px;
+        }
+      }
+      .sheet-close {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        border: 0;
+        background: #eef2f0;
+        color: #5c6b66;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .sheet .cat-emoji {
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+        border-radius: 15px;
+      }
+      .detail-title {
+        font-size: 19px;
+        font-weight: 700;
+        margin: 12px 0 6px;
+        line-height: 1.6;
+      }
+      .detail-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .detail-price {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-2);
+        background: #f1f8f5;
+        border-radius: 13px;
+        padding: 11px 14px;
+        margin-bottom: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .detail-price small {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .detail-desc {
+        background: #fafcfb;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.9;
+        white-space: pre-wrap;
+        word-break: break-word;
+        margin-bottom: 14px;
+      }
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .info-row {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 13.5px;
+        color: #3c4b46;
+      }
+      .info-row .ico {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        border-radius: 9px;
+        background: #f1f6f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+      }
+      .contact-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .contact-actions .btn {
+        padding: 13px 10px;
+        font-size: 14px;
+      }
+      .btn.call {
+        background: linear-gradient(140deg, #0e7a5f, #0a5b46);
+        color: #fff;
+        box-shadow: 0 5px 16px rgba(14, 122, 95, 0.3);
+        text-decoration: none;
+      }
+      .btn.wa {
+        background: linear-gradient(140deg, #25d366, #128c7e);
+        color: #fff;
+        box-shadow: 0 5px 16px rgba(18, 140, 126, 0.3);
+        text-decoration: none;
+      }
+      .btn.copy {
+        background: #eef2f0;
+        color: #3c4b46;
+        grid-column: 1/-1;
+      }
+      .expire-note {
+        margin-top: 14px;
+        font-size: 12px;
+        color: #a9761a;
+        background: #fdf7ea;
+        border: 1px dashed #f0d79a;
+        border-radius: 12px;
+        padding: 9px 12px;
+        text-align: center;
+      }
+      .admin-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+      .admin-actions .btn {
+        padding: 12px 14px;
+        font-size: 13.5px;
+      }
+      .admin-tag {
+        display: inline-block;
+        font-size: 10px;
+        background: #fdecea;
+        color: #c0392b;
+        padding: 2px 8px;
+        border-radius: 999px;
+        margin-right: 6px;
+        font-weight: 700;
+      }
 
-<!-- ============ هدر با جستجو ============ -->
-<header class="app-header">
-  <div class="header-inner">
-    <div class="brand">
-      <div class="logo">🛒</div>
-      <div>
-        <h1>بازار آنلاین کابل</h1>
-        <p>هر چی می‌خواهی بفروش، بخر و جستجو کن — از اجناس نو تا دست دوم</p>
+      /* ================= مودال احراز هویت ================= */
+      .auth-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: rgba(8, 30, 24, 0.6);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      .auth-modal.open {
+        display: flex;
+      }
+      .auth-card {
+        background: #fff;
+        border-radius: 22px;
+        width: 100%;
+        max-width: 420px;
+        max-height: 94vh;
+        overflow-y: auto;
+        padding: 22px 20px 24px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        animation: up 0.28s cubic-bezier(0.2, 0.8, 0.3, 1);
+        position: relative;
+      }
+      .auth-close {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        border: 0;
+        background: #eef2f0;
+        color: #5c6b66;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .auth-head {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .auth-head .ico {
+        font-size: 36px;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .auth-head h2 {
+        margin: 0;
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--primary-2);
+      }
+      .auth-head p {
+        margin: 4px 0 0;
+        font-size: 12.5px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .auth-tabs {
+        display: flex;
+        background: #eef2f0;
+        border-radius: 13px;
+        padding: 4px;
+        margin-bottom: 18px;
+      }
+      .auth-tabs button {
+        flex: 1;
+        border: 0;
+        background: transparent;
+        padding: 10px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #4a5a55;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .auth-tabs button.active {
+        background: #fff;
+        color: var(--primary-2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .auth-form {
+        display: none;
+        animation: fade 0.2s ease;
+      }
+      .auth-form.active {
+        display: block;
+      }
+      .auth-msg {
+        font-size: 12.5px;
+        padding: 9px 12px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        display: none;
+        line-height: 1.7;
+      }
+      .auth-msg.error {
+        display: block;
+        background: #fdecea;
+        color: #c0392b;
+        border: 1px solid #f5c6c0;
+      }
+      .auth-msg.success {
+        display: block;
+        background: #e8f4ef;
+        color: #0a5b46;
+        border: 1px solid #b9dfd0;
+      }
+      .auth-msg.info {
+        display: block;
+        background: #fdf7ea;
+        color: #a9761a;
+        border: 1px solid #f0d79a;
+      }
+      .field-hint {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 4px;
+        line-height: 1.6;
+      }
+      .req {
+        color: #c0392b;
+      }
+      .optional {
+        color: var(--muted);
+        font-weight: 400;
+        font-size: 11px;
+      }
+      .auth-submit {
+        margin-top: 6px;
+      }
+      .auth-submit .btn {
+        width: 100%;
+      }
+      .admin-banner {
+        background: #fdecea;
+        border: 1px solid #f5c6c0;
+        color: #c0392b;
+        font-size: 12px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        text-align: center;
+        line-height: 1.7;
+      }
+      .switch-note {
+        text-align: center;
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-top: 14px;
+        line-height: 1.8;
+      }
+      .switch-note a {
+        color: var(--primary-2);
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      /* ================= توست ================= */
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translate(-50%, 26px);
+        background: #12211c;
+        color: #fff;
+        padding: 11px 20px;
+        border-radius: 999px;
+        font-size: 13.5px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.28s;
+        z-index: 300;
+        max-width: 88vw;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      .toast.error {
+        background: #c0392b;
+      }
+      .toast.success {
+        background: #0a5b46;
+      }
+
+      /* ================= فوتر ================= */
+      .footer {
+        text-align: center;
+        font-size: 11.5px;
+        color: #8a9793;
+        padding: 22px 18px 10px;
+        line-height: 2;
+      }
+
+      /* ================= دیباگ کانفیگ ================= */
+      .config-warning {
+        background: #fdecea;
+        border: 2px solid #c0392b;
+        color: #c0392b;
+        padding: 14px;
+        border-radius: 12px;
+        margin: 16px;
+        font-size: 13px;
+        line-height: 1.9;
+        text-align: center;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .config-warning code {
+        background: #fff;
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-size: 12px;
+        direction: ltr;
+        display: inline-block;
+        margin: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ هدر ============ -->
+    <header class="app-header">
+      <div class="header-inner">
+        <div class="top-row">
+          <div class="brand">
+            <div class="logo">🛒</div>
+            <div>
+              <h1>بازار آنلاین کابل</h1>
+              <p>
+                هر چی می‌خواهی بفروش، بخر و جستجو کن — از اجناس نو تا دست دوم
+              </p>
+            </div>
+          </div>
+
+          <!-- ناحیه ورود/ثبت‌نام -->
+          <div class="auth-area" id="authArea">
+            <button class="auth-btn" id="loginBtn">ورود</button>
+            <button class="auth-btn solid" id="signupBtn">ثبت‌نام</button>
+          </div>
+        </div>
+
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="جستجو در تمام آگهی‌ها…"
+            autocomplete="off"
+          />
+          <button
+            class="clear-btn"
+            id="clearSearch"
+            hidden
+            aria-label="پاک کردن"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- ============ باکس نوشتن آگهی ============ -->
+      <section class="card">
+        <button class="composer-trigger" id="composerTrigger">
+          <span class="plus-circle">＋</span>
+          <span>چه چیزی برای فروش دارید؟</span>
+        </button>
+
+        <div class="login-notice" id="loginNotice" hidden>
+          برای نشر آگهی باید اول <a id="noticeLogin">وارد</a> شوید یا
+          <a id="noticeSignup">ثبت‌نام</a> کنید.
+        </div>
+
+        <form class="post-form" id="postForm" hidden>
+          <div class="field">
+            <label for="fTitle">عنوان آگهی *</label>
+            <input
+              id="fTitle"
+              type="text"
+              maxlength="70"
+              placeholder="مثلاً: موبایل سامسونگ A12، حالت خوب"
+            />
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="fCategory">کتگوری</label>
+              <select id="fCategory"></select>
+            </div>
+            <div class="field">
+              <label for="fCondition">حالت کالا</label>
+              <select id="fCondition">
+                <option value="نو">نو</option>
+                <option value="دست دوم">دست دوم</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="fPrice">قیمت (افغانی)</label>
+              <input
+                id="fPrice"
+                type="text"
+                inputmode="numeric"
+                maxlength="12"
+                placeholder="مثلاً ۵۰۰۰ — خالی = توافقی"
+              />
+            </div>
+            <div class="field">
+              <label for="fCity">شهر / ولایت</label>
+              <input id="fCity" type="text" maxlength="30" value="کابل" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="fDesc">توضیحات</label>
+            <textarea
+              id="fDesc"
+              rows="3"
+              maxlength="600"
+              placeholder="جزئیات کالا، حالت آن، جای تحویل…"
+            ></textarea>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="fName">نام شما *</label>
+              <input
+                id="fName"
+                type="text"
+                maxlength="30"
+                placeholder="نام و تخلص"
+              />
+            </div>
+            <div class="field">
+              <label for="fPhone">شماره تماس *</label>
+              <input
+                id="fPhone"
+                type="tel"
+                inputmode="tel"
+                maxlength="18"
+                placeholder="۰۷۰۰ ۰۰۰ ۰۰۰"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>مدت نمایش آگهی</label>
+            <div class="chips" id="durationChips"></div>
+            <p class="hint">
+              ⏳ آگهی شما بعد از این مدت به صورت خودکار از سایت حذف می‌شود.
+            </p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary" id="submitPost">
+              نشر آگهی
+            </button>
+            <button type="button" class="btn ghost" id="cancelPost">لغو</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ============ فید آگهی‌ها ============ -->
+      <div class="feed-head">
+        <h2>آگهی‌های تازه</h2>
+        <span class="count" id="postCount">—</span>
+      </div>
+
+      <nav class="filter-chips" id="filterChips"></nav>
+
+      <div class="posts" id="postsList">
+        <div class="loading-feed">
+          <div class="spinner"></div>
+          در حال بارگذاری…
+        </div>
+      </div>
+
+      <div class="footer">
+        بازار آنلاین کابل — بخر، بفروش، جستجو کن 🛒<br />
+        هر آگهی بعد از مدت انتخاب‌شده به صورت خودکار حذف می‌شود.
       </div>
     </div>
-    <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input id="searchInput" type="text" placeholder="جستجو در تمام آگهی‌ها… (مثلاً: موبایل، فرش، موتر)" autocomplete="off">
-      <button class="clear-btn" id="clearSearch" hidden aria-label="پاک کردن">✕</button>
+
+    <!-- ============ مودال جزئیات ============ -->
+    <div class="modal" id="detailModal">
+      <div class="sheet" id="detailSheet">
+        <button class="sheet-close" id="closeDetail" aria-label="بستن">
+          ✕
+        </button>
+        <div id="detailBody"></div>
+      </div>
     </div>
-  </div>
-</header>
 
-<div class="container">
+    <!-- ============ مودال احراز هویت ============ -->
+    <div class="auth-modal" id="authModal">
+      <div class="auth-card">
+        <button class="auth-close" id="authClose" aria-label="بستن">✕</button>
 
-  <!-- ============ باکس نوشتن آگهی ============ -->
-  <section class="card">
-    <button class="composer-trigger" id="composerTrigger">
-      <span class="plus-circle">＋</span>
-      <span>چه چیزی برای فروش دارید؟</span>
-    </button>
-
-    <form class="post-form" id="postForm" hidden>
-      <div class="field">
-        <label for="fTitle">عنوان آگهی *</label>
-        <input id="fTitle" type="text" maxlength="70" placeholder="مثلاً: موبایل سامسونگ A12، حالت خوب">
-      </div>
-
-      <div class="row2">
-        <div class="field">
-          <label for="fCategory">کتگوری</label>
-          <select id="fCategory"></select>
+        <div class="auth-head">
+          <span class="ico">🛒</span>
+          <h2>بازار آنلاین کابل</h2>
+          <p>برای نشر آگهی و مدیریت، وارد حساب خود شوید</p>
         </div>
-        <div class="field">
-          <label for="fCondition">حالت کالا</label>
-          <select id="fCondition">
-            <option value="نو">نو</option>
-            <option value="دست دوم">دست دوم</option>
-          </select>
+
+        <div class="auth-tabs">
+          <button id="tabLogin" class="active">ورود</button>
+          <button id="tabSignup">ثبت‌نام</button>
         </div>
+
+        <!-- ---------- فورم ورود ---------- -->
+        <form class="auth-form active" id="loginForm" novalidate>
+          <div class="auth-msg" id="loginMsg"></div>
+
+          <div class="field">
+            <label for="liIdentifier"
+              >ایمیل یا شماره تماس <span class="req">*</span></label
+            >
+            <input
+              id="liIdentifier"
+              type="text"
+              autocomplete="username"
+              placeholder="example@mail.com یا ۰۷۰۰۰۰۰۰۰۰"
+            />
+            <p class="field-hint">
+              می‌توانید با ایمیل یا شماره موبایلی که ثبت‌نام کرده‌اید وارد شوید.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="liPassword">رمز عبور <span class="req">*</span></label>
+            <input
+              id="liPassword"
+              type="password"
+              autocomplete="current-password"
+              placeholder="رمز عبور خود را بنویسید"
+            />
+          </div>
+
+          <div class="auth-submit">
+            <button type="submit" class="btn primary" id="loginSubmit">
+              <span class="label">ورود به حساب</span>
+            </button>
+          </div>
+
+          <p class="switch-note">
+            حساب ندارید؟ <a id="switchToSignup">ثبت‌نام کنید</a>
+          </p>
+        </form>
+
+        <!-- ---------- فورم ثبت‌نام ---------- -->
+        <form class="auth-form" id="signupForm" novalidate>
+          <div class="auth-msg" id="signupMsg"></div>
+
+          <div class="field">
+            <label for="suName">نام و تخلص <span class="req">*</span></label>
+            <input
+              id="suName"
+              type="text"
+              maxlength="40"
+              placeholder="مثلاً: احمد احمدی"
+            />
+          </div>
+
+          <div class="field">
+            <label for="suPhone">شماره تماس <span class="req">*</span></label>
+            <input
+              id="suPhone"
+              type="tel"
+              inputmode="tel"
+              maxlength="18"
+              placeholder="۰۷۰۰ ۰۰۰ ۰۰۰"
+            />
+            <p class="field-hint">با این شماره می‌توانید در آینده وارد شوید.</p>
+          </div>
+
+          <div class="field">
+            <label for="suEmail"
+              >ایمیل <span class="optional">(اختیاری)</span></label
+            >
+            <input
+              id="suEmail"
+              type="email"
+              autocomplete="email"
+              placeholder="example@mail.com"
+            />
+            <p class="field-hint">
+              اگر ایمیل بدهید، با ایمیل هم می‌توانید وارد شوید.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="suPassword">رمز عبور <span class="req">*</span></label>
+            <input
+              id="suPassword"
+              type="password"
+              autocomplete="new-password"
+              placeholder="حداقل ۶ حرف"
+            />
+          </div>
+
+          <div class="field">
+            <label for="suPassword2"
+              >تکرار رمز عبور <span class="req">*</span></label
+            >
+            <input
+              id="suPassword2"
+              type="password"
+              autocomplete="new-password"
+              placeholder="دوباره رمز عبور را بنویسید"
+            />
+          </div>
+
+          <div class="auth-submit">
+            <button type="submit" class="btn primary" id="signupSubmit">
+              <span class="label">ایجاد حساب</span>
+            </button>
+          </div>
+
+          <p class="switch-note">
+            قبلاً ثبت‌نام کرده‌اید؟ <a id="switchToLogin">وارد شوید</a>
+          </p>
+        </form>
       </div>
+    </div>
 
-      <div class="row2">
-        <div class="field">
-          <label for="fPrice">قیمت (افغانی)</label>
-          <input id="fPrice" type="text" inputmode="numeric" maxlength="12" placeholder="مثلاً ۵۰۰۰ — خالی = توافقی">
-        </div>
-        <div class="field">
-          <label for="fCity">شهر / ولایت</label>
-          <input id="fCity" type="text" maxlength="30" value="کابل">
-        </div>
-      </div>
+    <div class="toast" id="toast"></div>
 
-      <div class="field">
-        <label for="fDesc">توضیحات</label>
-        <textarea id="fDesc" rows="3" maxlength="600" placeholder="جزئیات کالا، حالت آن، جای تحویل و هر چیزی که خریدار باید بداند…"></textarea>
-      </div>
-
-      <div class="row2">
-        <div class="field">
-          <label for="fName">نام شما *</label>
-          <input id="fName" type="text" maxlength="30" placeholder="نام و تخلص">
-        </div>
-        <div class="field">
-          <label for="fPhone">شماره تماس *</label>
-          <input id="fPhone" type="tel" inputmode="tel" maxlength="18" placeholder="۰۷۰۰ ۰۰۰ ۰۰۰">
-        </div>
-      </div>
-
-      <div class="field">
-        <label>مدت نمایش آگهی</label>
-        <div class="chips" id="durationChips"></div>
-        <p class="hint">⏳ آگهی شما بعد از این مدت به صورت خودکار از سایت حذف می‌شود.</p>
-      </div>
-
-      <div class="form-actions">
-        <button type="submit" class="btn primary">نشر آگهی</button>
-        <button type="button" class="btn ghost" id="cancelPost">لغو</button>
-      </div>
-    </form>
-  </section>
-
-  <!-- ============ فید آگهی‌ها ============ -->
-  <div class="feed-head">
-    <h2>آگهی‌های تازه</h2>
-    <span class="count" id="postCount">۰ آگهی</span>
-  </div>
-
-  <nav class="filter-chips" id="filterChips"></nav>
-
-  <div class="posts" id="postsList"></div>
-
-  <div class="footer">
-    بازار آنلاین کابل — بخر، بفروش، جستجو کن 🛒<br>
-    هر آگهی بعد از مدت انتخاب‌شده به صورت خودکار حذف می‌شود.
-  </div>
-</div>
-
-<!-- ============ مودال جزئیات ============ -->
-<div class="modal" id="detailModal">
-  <div class="sheet" id="detailSheet">
-    <button class="sheet-close" id="closeDetail" aria-label="بستن">✕</button>
-    <div id="detailBody"></div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-/* =========================================================
-   بازار آنلاین کابل — منطق برنامه
+    <!-- =========================================================
+     اسکریپت برنامه — Firebase + منطق
+     ========================================================= -->
+    <script type="module">
+      /* =========================================================
+   1) کانفیگ Firebase
+   ---------------------------------------------------------
+   ⚠️ این مقادیر را با مقادیر پروژه Firebase خودتان جایگزین کنید
+   (از Firebase Console → Project Settings → Your apps → Web app)
    ========================================================= */
+      const firebaseConfig = {
+        apiKey: "AIzaSyCHCFODNxuWq2rbHAHBhkm6gIBT2fEDvdg",
+        authDomain: "afghan-bazaar-aca1c.firebaseapp.com",
+        projectId: "afghan-bazaar-aca1c",
+        storageBucket: "afghan-bazaar-aca1c.firebasestorage.app",
+        messagingSenderId: "642292480110",
+        appId: "1:642292480110:web:1f6a7e801ebcfa2ed6ce7f",
+        // measurementId: "G-XXXXXXX"   // اختیاری
+      };
 
-const STORAGE_KEY = 'kabul_bazaar_posts_v1';
+      /* =========================================================
+   2) ایمپورت Firebase SDK v10 (Modular, via CDN)
+   ========================================================= */
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+        updateProfile,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import {
+        getFirestore,
+        collection,
+        doc,
+        setDoc,
+        getDoc,
+        getDocs,
+        addDoc,
+        deleteDoc,
+        query,
+        where,
+        orderBy,
+        onSnapshot,
+        serverTimestamp,
+        Timestamp,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const CATEGORIES = [
-  { id:'mobile',   label:'موبایل و تابلت',        emoji:'📱' },
-  { id:'computer', label:'کمپیوتر و لپ‌تاپ',      emoji:'💻' },
-  { id:'home',     label:'خانه و آشپزخانه',        emoji:'🏠' },
-  { id:'clothes',  label:'لباس و پوشاک',           emoji:'👕' },
-  { id:'vehicle',  label:'موتر و وسایل نقلیه',     emoji:'🚗' },
-  { id:'books',    label:'کتاب و قرطاسیه',         emoji:'📚' },
-  { id:'toys',     label:'اسباب‌بازی و طفلانه',    emoji:'🧸' },
-  { id:'service',  label:'خدمات',                  emoji:'🛠️' },
-  { id:'other',    label:'سایر',                   emoji:'📦' }
-];
+      /* =========================================================
+   3) مقدارهای ثابت برنامه
+   ========================================================= */
+      const ADMIN_EMAIL = "alex33x44@outloock.com";
+      const SYNTH_DOMAIN = "kabul-bazaar.app"; // برای ساخت ایمیل ساختگی از شماره تماس
 
-const DURATIONS = [
-  { h: 24,  label: '۱ روز'  },
-  { h: 72,  label: '۳ روز'  },
-  { h: 168, label: '۷ روز'  },
-  { h: 336, label: '۱۴ روز' },
-  { h: 720, label: '۳۰ روز' }
-];
+      const CATEGORIES = [
+        { id: "mobile", label: "موبایل و تابلت", emoji: "📱" },
+        { id: "computer", label: "کمپیوتر و لپ‌تاپ", emoji: "💻" },
+        { id: "home", label: "خانه و آشپزخانه", emoji: "🏠" },
+        { id: "clothes", label: "لباس و پوشاک", emoji: "👕" },
+        { id: "vehicle", label: "موتر و وسایل نقلیه", emoji: "🚗" },
+        { id: "books", label: "کتاب و قرطاسیه", emoji: "📚" },
+        { id: "toys", label: "اسباب‌بازی و طفلانه", emoji: "🧸" },
+        { id: "service", label: "خدمات", emoji: "🛠️" },
+        { id: "other", label: "سایر", emoji: "📦" },
+      ];
 
-let posts = [];
-let searchQuery = '';
-let activeCat = 'all';
+      const DURATIONS = [
+        { h: 24, label: "۱ روز" },
+        { h: 72, label: "۳ روز" },
+        { h: 168, label: "۷ روز" },
+        { h: 336, label: "۱۴ روز" },
+        { h: 720, label: "۳۰ روز" },
+      ];
 
-/* ---------- عناصر ---------- */
-const $ = s => document.querySelector(s);
-const postsList     = $('#postsList');
-const postCount     = $('#postCount');
-const filterChips   = $('#filterChips');
-const durationChips = $('#durationChips');
-const searchInput   = $('#searchInput');
-const clearSearch   = $('#clearSearch');
-const composerTrigger = $('#composerTrigger');
-const postForm      = $('#postForm');
-const cancelPost    = $('#cancelPost');
-const detailModal   = $('#detailModal');
-const detailBody    = $('#detailBody');
-const closeDetail   = $('#closeDetail');
-const toastEl       = $('#toast');
+      /* =========================================================
+   4) راه‌اندازی Firebase
+   ========================================================= */
+      let app, auth, db;
+      let configReady = false;
 
-/* ---------- کمک‌کننده‌ها ---------- */
-const FA_DIGITS = '۰۱۲۳۴۵۶۷۸۹';
+      try {
+        // بررسی این‌که کانفیگ جایگزین شده یا نه
+        if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+          app = initializeApp(firebaseConfig);
+          auth = getAuth(app);
+          db = getFirestore(app);
+          configReady = true;
+        }
+      } catch (e) {
+        console.error("Firebase init error:", e);
+      }
 
-function faNum(v){
-  return String(v).replace(/\d/g, d => FA_DIGITS[+d]);
-}
-function toEnDigits(str){
-  return String(str)
-    .replace(/[۰-۹]/g, d => FA_DIGITS.indexOf(d))
-    .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
-}
-function esc(str){
-  return String(str == null ? '' : str).replace(/[&<>"']/g, c => ({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  }[c]));
-}
-function catById(id){
-  return CATEGORIES.find(c => c.id === id) || CATEGORIES[CATEGORIES.length - 1];
-}
-function toast(msg){
-  toastEl.textContent = msg;
-  toastEl.classList.add('show');
-  clearTimeout(toast._t);
-  toast._t = setTimeout(() => toastEl.classList.remove('show'), 2600);
-}
+      /* =========================================================
+   5) وضعیت برنامه
+   ========================================================= */
+      let currentUser = null; // { uid, email, displayName, phone, isAdmin }
+      let userProfile = null; // پروفایل کامل از Firestore
+      let posts = [];
+      let unsubscribePosts = null;
+      let searchQuery = "";
+      let activeCat = "all";
+      let postsLoaded = false;
 
-/* ---------- زمان ---------- */
-function remainingText(expiresAt){
-  const ms = expiresAt - Date.now();
-  if (ms <= 0) return 'منقضی شده';
-  const mins  = Math.floor(ms / 60000);
-  const hours = Math.floor(mins / 60);
-  const days  = Math.floor(hours / 24);
-  if (days  >= 1) return faNum(days)  + ' روز باقی مانده';
-  if (hours >= 1) return faNum(hours) + ' ساعت باقی مانده';
-  if (mins  >= 1) return faNum(mins)  + ' دقیقه باقی مانده';
-  return 'کمتر از یک دقیقه باقی مانده';
-}
-function postedDate(ts){
-  try {
-    return new Date(ts).toLocaleDateString('fa-AF', {
-      year:'numeric', month:'long', day:'numeric'
-    });
-  } catch (e) {
-    return faNum(new Date(ts).toLocaleDateString());
-  }
-}
+      /* =========================================================
+   6) کمک‌کننده‌ها
+   ========================================================= */
+      const $ = (s) => document.querySelector(s);
+      const FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
 
-/* ---------- ذخیره‌سازی ---------- */
-function loadPosts(){
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    posts = raw ? JSON.parse(raw) : [];
-    if (!Array.isArray(posts)) posts = [];
-  } catch (e) {
-    posts = [];
-  }
-}
-function savePosts(){
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-  } catch (e) {
-    toast('حافظه پُر است، بعضی آگهی‌ها ذخیره نشد');
-  }
-}
-function pruneExpired(){
-  const now = Date.now();
-  const before = posts.length;
-  posts = posts.filter(p => p && p.expiresAt > now);
-  if (posts.length !== before) savePosts();
-}
+      function faNum(v) {
+        return String(v).replace(/\d/g, (d) => FA_DIGITS[+d]);
+      }
 
-/* ---------- ساخت چیپ‌ها ---------- */
-function buildDurationChips(){
-  durationChips.innerHTML = DURATIONS.map(d => `
+      function toEnDigits(str) {
+        return String(str)
+          .replace(/[۰-۹]/g, (d) => FA_DIGITS.indexOf(d))
+          .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+      }
+
+      function esc(str) {
+        return String(str == null ? "" : str).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      }
+
+      function catById(id) {
+        return (
+          CATEGORIES.find((c) => c.id === id) ||
+          CATEGORIES[CATEGORIES.length - 1]
+        );
+      }
+
+      function normalizePhone(raw) {
+        return toEnDigits(raw || "").replace(/[\s\-()]/g, "");
+      }
+
+      function isEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      function isPhone(v) {
+        return /^\+?\d{9,15}$/.test(normalizePhone(v));
+      }
+
+      function phoneToSyntheticEmail(phone) {
+        return normalizePhone(phone).replace(/^\+/, "") + "@" + SYNTH_DOMAIN;
+      }
+
+      function toast(msg, type) {
+        const el = $("#toast");
+        el.textContent = msg;
+        el.className = "toast show" + (type ? " " + type : "");
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => el.classList.remove("show"), 2800);
+      }
+
+      function setLoading(btnEl, loading, labelWhenIdle) {
+        if (!btnEl) return;
+        const label = btnEl.querySelector(".label") || btnEl;
+        if (loading) {
+          btnEl.disabled = true;
+          btnEl.dataset.prevLabel = label.textContent;
+          label.textContent = "لطفاً صبر کنید…";
+          if (!btnEl.querySelector(".spinner")) {
+            const sp = document.createElement("span");
+            sp.className = "spinner";
+            btnEl.prepend(sp);
+          }
+        } else {
+          btnEl.disabled = false;
+          const sp = btnEl.querySelector(".spinner");
+          if (sp) sp.remove();
+          label.textContent =
+            labelWhenIdle || btnEl.dataset.prevLabel || "تأیید";
+        }
+      }
+
+      function showMsg(el, text, type) {
+        el.className = "auth-msg " + (type || "info");
+        el.textContent = text;
+      }
+      function hideMsg(el) {
+        el.className = "auth-msg";
+        el.textContent = "";
+      }
+
+      /* =========================================================
+   7) زمان‌ها
+   ========================================================= */
+      function remainingText(expiresAt) {
+        const ms = expiresAt - Date.now();
+        if (ms <= 0) return "منقضی شده";
+        const mins = Math.floor(ms / 60000);
+        const hours = Math.floor(mins / 60);
+        const days = Math.floor(hours / 24);
+        if (days >= 1) return faNum(days) + " روز باقی مانده";
+        if (hours >= 1) return faNum(hours) + " ساعت باقی مانده";
+        if (mins >= 1) return faNum(mins) + " دقیقه باقی مانده";
+        return "کمتر از یک دقیقه باقی مانده";
+      }
+
+      function postedDate(ts) {
+        try {
+          const d = ts instanceof Date ? ts : new Date(ts);
+          return d.toLocaleDateString("fa-AF", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+        } catch (e) {
+          return faNum(new Date(ts).toLocaleDateString());
+        }
+      }
+
+      /* =========================================================
+   8) ساخت المان‌های داینامیک
+   ========================================================= */
+      function buildDurationChips() {
+        $("#durationChips").innerHTML = DURATIONS.map(
+          (d) => `
     <label class="chip">
-      <input type="radio" name="duration" value="${d.h}" ${d.h === 168 ? 'checked' : ''}>
+      <input type="radio" name="duration" value="${d.h}" ${d.h === 168 ? "checked" : ""}>
       <span>${d.label}</span>
     </label>
-  `).join('');
-}
+  `,
+        ).join("");
+      }
 
-function buildCategorySelect(){
-  $('#fCategory').innerHTML = CATEGORIES.map(c =>
-    `<option value="${c.id}">${c.emoji} ${c.label}</option>`
-  ).join('');
-}
+      function buildCategorySelect() {
+        $("#fCategory").innerHTML = CATEGORIES.map(
+          (c) => `<option value="${c.id}">${c.emoji} ${c.label}</option>`,
+        ).join("");
+      }
 
-function buildFilterChips(){
-  filterChips.innerHTML =
-    `<button class="fchip active" data-cat="all">همه</button>` +
-    CATEGORIES.map(c =>
-      `<button class="fchip" data-cat="${c.id}">${c.emoji} ${c.label}</button>`
-    ).join('');
-}
+      function buildFilterChips() {
+        $("#filterChips").innerHTML =
+          `<button class="fchip active" data-cat="all">همه</button>` +
+          CATEGORIES.map(
+            (c) =>
+              `<button class="fchip" data-cat="${c.id}">${c.emoji} ${c.label}</button>`,
+          ).join("");
+      }
 
-/* ---------- رندر فید ---------- */
-function renderPosts(){
-  pruneExpired();
+      /* =========================================================
+   9) وضعیت احراز هویت — رندر هدر
+   ========================================================= */
+      function renderAuthArea() {
+        const area = $("#authArea");
 
-  const q = searchQuery.trim().toLowerCase();
-  let list = posts.slice();
+        if (currentUser) {
+          const name =
+            (userProfile && userProfile.name) ||
+            currentUser.displayName ||
+            "کاربر";
+          const initial = name.trim().charAt(0) || "؟";
+          const adminTag = currentUser.isAdmin
+            ? ' <span class="admin-tag">ادمین</span>'
+            : "";
 
-  if (activeCat !== 'all') list = list.filter(p => p.category === activeCat);
+          area.innerHTML = `
+      <div class="user-chip">
+        <div class="avatar">${esc(initial)}</div>
+        <div class="uinfo">
+          <div class="uname">${esc(name)}${adminTag}</div>
+          <div class="ulink" id="logoutBtn">خروج</div>
+        </div>
+      </div>
+    `;
+          $("#logoutBtn").addEventListener("click", doLogout);
+        } else {
+          area.innerHTML = `
+      <button class="auth-btn" id="loginBtn">ورود</button>
+      <button class="auth-btn solid" id="signupBtn">ثبت‌نام</button>
+    `;
+          $("#loginBtn").addEventListener("click", () => openAuth("login"));
+          $("#signupBtn").addEventListener("click", () => openAuth("signup"));
+        }
 
-  if (q) {
-    list = list.filter(p => {
-      const c = catById(p.category);
-      const hay = [p.title, p.desc, p.city, p.name, c.label, p.condition]
-        .join(' ').toLowerCase();
-      return hay.indexOf(q) !== -1;
-    });
-  }
+        updateComposerVisibility();
+      }
 
-  list.sort((a, b) => b.createdAt - a.createdAt);
+      function updateComposerVisibility() {
+        const trigger = $("#composerTrigger");
+        const form = $("#postForm");
+        const notice = $("#loginNotice");
 
-  postCount.textContent = faNum(list.length) + ' آگهی';
+        if (currentUser) {
+          trigger.style.display = "flex";
+          notice.hidden = true;
+        } else {
+          trigger.style.display = "none";
+          form.hidden = true;
+          notice.hidden = false;
+        }
+      }
 
-  if (!list.length) {
-    const msg = (q || activeCat !== 'all')
-      ? 'هیچ آگهی‌ای مطابق جستجوی شما پیدا نشد.'
-      : 'هنوز هیچ آگهی‌ای ثبت نشده است. اولین نفر باشید!';
-    postsList.innerHTML = `
+      /* =========================================================
+   10) مودال احراز هویت
+   ========================================================= */
+      function openAuth(tab) {
+        if (currentUser) return; // اگر وارد شده، نیازی نیست
+        $("#authModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+        switchAuthTab(tab || "login");
+      }
+      function closeAuth() {
+        $("#authModal").classList.remove("open");
+        document.body.style.overflow = "";
+        hideMsg($("#loginMsg"));
+        hideMsg($("#signupMsg"));
+      }
+      function switchAuthTab(tab) {
+        const isLogin = tab === "login";
+        $("#tabLogin").classList.toggle("active", isLogin);
+        $("#tabSignup").classList.toggle("active", !isLogin);
+        $("#loginForm").classList.toggle("active", isLogin);
+        $("#signupForm").classList.toggle("active", !isLogin);
+        hideMsg($("#loginMsg"));
+        hideMsg($("#signupMsg"));
+      }
+
+      /* =========================================================
+   11) ثبت‌نام
+   ========================================================= */
+      async function doSignup(e) {
+        e.preventDefault();
+        const msg = $("#signupMsg");
+        const btn = $("#signupSubmit");
+        hideMsg(msg);
+
+        if (!configReady) {
+          showMsg(
+            msg,
+            "اتصال به Firebase تنظیم نشده است. لطفاً کانفیگ را در کد جایگزین کنید.",
+            "error",
+          );
+          return;
+        }
+
+        const name = $("#suName").value.trim();
+        const phoneRaw = $("#suPhone").value.trim();
+        const emailRaw = $("#suEmail").value.trim();
+        const pass = $("#suPassword").value;
+        const pass2 = $("#suPassword2").value;
+
+        if (!name) return showMsg(msg, "لطفاً نام خود را بنویسید.", "error");
+        if (!phoneRaw)
+          return showMsg(msg, "لطفاً شماره تماس را بنویسید.", "error");
+        if (!isPhone(phoneRaw))
+          return showMsg(
+            msg,
+            "شماره تماس درست نیست (مثلاً ۰۷۰۰۰۰۰۰۰۰).",
+            "error",
+          );
+        if (emailRaw && !isEmail(emailRaw))
+          return showMsg(msg, "ایمیل درست نیست یا خالی بگذارید.", "error");
+        if (pass.length < 6)
+          return showMsg(msg, "رمز عبور باید حداقل ۶ حرف باشد.", "error");
+        if (pass !== pass2)
+          return showMsg(msg, "رمز عبور و تکرار آن یکسان نیست.", "error");
+
+        const phone = normalizePhone(phoneRaw);
+        const isAdmin =
+          emailRaw && emailRaw.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+        const authEmail = emailRaw || phoneToSyntheticEmail(phone);
+
+        setLoading(btn, true);
+
+        try {
+          /* --- بررسی این‌که شماره قبلاً ثبت نشده --- */
+          const dupQ = query(
+            collection(db, "users"),
+            where("phone", "==", phone),
+          );
+          const dupSnap = await getDocs(dupQ);
+          if (!dupSnap.empty) {
+            throw { code: "phone-already-in-use" };
+          }
+
+          /* --- ساخت کاربر در Auth --- */
+          const cred = await createUserWithEmailAndPassword(
+            auth,
+            authEmail,
+            pass,
+          );
+
+          /* --- ذخیره نام در پروفایل Auth --- */
+          try {
+            await updateProfile(cred.user, { displayName: name });
+          } catch (_) {}
+
+          /* --- ذخیره پروفایل در Firestore --- */
+          await setDoc(doc(db, "users", cred.user.uid), {
+            uid: cred.user.uid,
+            name: name,
+            phone: phone,
+            email: emailRaw || "",
+            authEmail: authEmail,
+            isAdmin: !!isAdmin,
+            createdAt: serverTimestamp(),
+          });
+
+          showMsg(msg, "حساب شما با موفقیت ساخته شد ✅", "success");
+          setTimeout(() => {
+            closeAuth();
+            resetAuthForms();
+          }, 700);
+        } catch (err) {
+          console.error("signup error:", err);
+          const code = (err && err.code) || "";
+          let text = "خطا در ثبت‌نام. لطفاً دوباره تلاش کنید.";
+          if (code === "auth/email-already-in-use")
+            text = "این ایمیل قبلاً استفاده شده است.";
+          else if (code === "auth/weak-password")
+            text = "رمز عبور ضعیف است (حداقل ۶ حرف).";
+          else if (code === "auth/invalid-email") text = "ایمیل نامعتبر است.";
+          else if (code === "permission-denied")
+            text = "دسترسی رد شد. قوانین Firestore را بررسی کنید.";
+          else if (code === "phone-already-in-use")
+            text = "این شماره تماس قبلاً ثبت‌نام کرده است.";
+          showMsg(msg, text, "error");
+        } finally {
+          setLoading(btn, false, "ایجاد حساب");
+        }
+      }
+
+      /* =========================================================
+   12) ورود (با ایمیل یا شماره تماس)
+   ========================================================= */
+      async function doLogin(e) {
+        e.preventDefault();
+        const msg = $("#loginMsg");
+        const btn = $("#loginSubmit");
+        hideMsg(msg);
+
+        if (!configReady) {
+          showMsg(msg, "اتصال به Firebase تنظیم نشده است.", "error");
+          return;
+        }
+
+        const id = $("#liIdentifier").value.trim();
+        const pass = $("#liPassword").value;
+
+        if (!id)
+          return showMsg(msg, "ایمیل یا شماره تماس خود را بنویسید.", "error");
+        if (!pass) return showMsg(msg, "رمز عبور را بنویسید.", "error");
+
+        setLoading(btn, true);
+
+        try {
+          let authEmail = id;
+
+          if (isEmail(id)) {
+            authEmail = id;
+          } else if (isPhone(id)) {
+            /* پیدا کردن کاربر با شماره تماس در Firestore */
+            const phone = normalizePhone(id);
+            const q = query(
+              collection(db, "users"),
+              where("phone", "==", phone),
+            );
+            const snap = await getDocs(q);
+            if (snap.empty) {
+              throw { code: "user-not-found-phone" };
+            }
+            authEmail =
+              snap.docs[0].data().authEmail || phoneToSyntheticEmail(phone);
+          } else {
+            return showMsg(msg, "ایمیل یا شماره تماس معتبر نیست.", "error");
+          }
+
+          await signInWithEmailAndPassword(auth, authEmail, pass);
+          showMsg(msg, "خوش آمدید ✅", "success");
+          setTimeout(() => {
+            closeAuth();
+            resetAuthForms();
+          }, 500);
+        } catch (err) {
+          console.error("login error:", err);
+          const code = (err && err.code) || "";
+          let text = "ورود ناموفق بود.";
+          if (
+            code === "auth/invalid-credential" ||
+            code === "auth/wrong-password" ||
+            code === "auth/user-not-found"
+          )
+            text = "ایمیل/شماره یا رمز عبور اشتباه است.";
+          else if (code === "auth/too-many-requests")
+            text = "تلاش‌های زیاد. کمی بعد دوباره تلاش کنید.";
+          else if (code === "auth/invalid-email") text = "ایمیل نامعتبر است.";
+          else if (code === "user-not-found-phone")
+            text = "کاربری با این شماره تماس یافت نشد.";
+          else if (code === "permission-denied")
+            text = "دسترسی رد شد. قوانین Firestore را بررسی کنید.";
+          showMsg(msg, text, "error");
+        } finally {
+          setLoading(btn, false, "ورود به حساب");
+        }
+      }
+
+      /* =========================================================
+   13) خروج
+   ========================================================= */
+      async function doLogout() {
+        try {
+          await signOut(auth);
+          toast("از حساب خود خارج شدید", "success");
+        } catch (e) {
+          toast("خطا در خروج", "error");
+        }
+      }
+
+      /* =========================================================
+   14) پاک کردن فورم‌های احراز هویت
+   ========================================================= */
+      function resetAuthForms() {
+        $("#loginForm").reset();
+        $("#signupForm").reset();
+        hideMsg($("#loginMsg"));
+        hideMsg($("#signupMsg"));
+      }
+
+      /* =========================================================
+   15) نظارت بر وضعیت ورود
+   ========================================================= */
+      function watchAuth() {
+        if (!configReady) {
+          // اگر Firebase تنظیم نشده، دکمه‌ها را نشان بده ولی پیام بده
+          renderAuthArea();
+          renderPosts();
+          return;
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            /* خواندن پروفایل از Firestore */
+            let profile = null;
+            try {
+              const ref = doc(db, "users", user.uid);
+              const snap = await getDoc(ref);
+              if (snap.exists()) profile = snap.data();
+            } catch (e) {
+              console.warn("profile load error:", e);
+            }
+
+            userProfile = profile;
+            currentUser = {
+              uid: user.uid,
+              email: user.email,
+              displayName: user.displayName,
+              phone: profile ? profile.phone : "",
+              isAdmin:
+                (profile && profile.isAdmin) ||
+                (user.email &&
+                  user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()),
+            };
+
+            /* پر کردن خودکار نام و شماره در فورم آگهی */
+            if (profile) {
+              if (profile.name && !$("#fName").value)
+                $("#fName").value = profile.name;
+              if (profile.phone && !$("#fPhone").value)
+                $("#fPhone").value = profile.phone;
+            }
+
+            renderAuthArea();
+            subscribePosts();
+          } else {
+            currentUser = null;
+            userProfile = null;
+            renderAuthArea();
+            unsubscribePosts && unsubscribePosts();
+            posts = [];
+            postsLoaded = true;
+            renderPosts();
+          }
+        });
+      }
+
+      /* =========================================================
+   16) بارگذاری آگهی‌ها از Firestore
+   ========================================================= */
+      function subscribePosts() {
+        if (!configReady) {
+          posts = [];
+          postsLoaded = true;
+          renderPosts();
+          return;
+        }
+
+        if (unsubscribePosts) {
+          unsubscribePosts();
+          unsubscribePosts = null;
+        }
+
+        const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+
+        unsubscribePosts = onSnapshot(
+          q,
+          (snap) => {
+            const now = Date.now();
+            const list = [];
+            snap.forEach((d) => {
+              const data = d.data();
+              let createdAt = now,
+                expiresAt = 0;
+
+              if (data.createdAt && data.createdAt.toMillis)
+                createdAt = data.createdAt.toMillis();
+              else if (typeof data.createdAt === "number")
+                createdAt = data.createdAt;
+
+              if (data.expiresAt && data.expiresAt.toMillis)
+                expiresAt = data.expiresAt.toMillis();
+              else if (typeof data.expiresAt === "number")
+                expiresAt = data.expiresAt;
+
+              list.push({
+                id: d.id,
+                title: data.title || "",
+                category: data.category || "other",
+                condition: data.condition || "نو",
+                price: data.price || "",
+                city: data.city || "کابل",
+                desc: data.desc || "",
+                name: data.name || "",
+                phone: data.phone || "",
+                userId: data.userId || "",
+                createdAt,
+                expiresAt,
+              });
+            });
+            posts = list;
+            postsLoaded = true;
+            renderPosts();
+          },
+          (err) => {
+            console.error("posts subscription error:", err);
+            postsLoaded = true;
+            posts = [];
+            renderPosts();
+            toast("خطا در بارگذاری آگهی‌ها", "error");
+          },
+        );
+      }
+
+      /* =========================================================
+   17) رندر فید
+   ========================================================= */
+      function renderPosts() {
+        const listEl = $("#postsList");
+        const countEl = $("#postCount");
+
+        if (!postsLoaded) {
+          listEl.innerHTML = `<div class="loading-feed"><div class="spinner"></div>در حال بارگذاری…</div>`;
+          countEl.textContent = "—";
+          return;
+        }
+
+        const now = Date.now();
+        let list = posts.filter((p) => p.expiresAt > now);
+
+        const q = searchQuery.trim().toLowerCase();
+        if (activeCat !== "all")
+          list = list.filter((p) => p.category === activeCat);
+        if (q) {
+          list = list.filter((p) => {
+            const c = catById(p.category);
+            const hay = [p.title, p.desc, p.city, p.name, c.label, p.condition]
+              .join(" ")
+              .toLowerCase();
+            return hay.indexOf(q) !== -1;
+          });
+        }
+
+        countEl.textContent = faNum(list.length) + " آگهی";
+
+        if (!list.length) {
+          const msg =
+            q || activeCat !== "all"
+              ? "هیچ آگهی‌ای مطابق جستجوی شما پیدا نشد."
+              : "هنوز هیچ آگهی‌ای ثبت نشده است. اولین نفر باشید!";
+          listEl.innerHTML = `
       <div class="empty">
         <span class="big">🔎</span>
         <p>${msg}</p>
         <p style="font-size:12.5px">می‌توانید خودتان یک آگهی نشر کنید.</p>
       </div>`;
-    return;
-  }
+          return;
+        }
 
-  postsList.innerHTML = list.map(p => {
-    const c = catById(p.category);
-    return `
+        listEl.innerHTML = list
+          .map((p) => {
+            const c = catById(p.category);
+            return `
       <article class="post" data-id="${p.id}">
         <div class="post-top">
           <div class="cat-emoji">${c.emoji}</div>
-          <span class="badge ${p.condition === 'دست دوم' ? 'used' : ''}">${esc(p.condition)}</span>
+          <span class="badge ${p.condition === "دست دوم" ? "used" : ""}">${esc(p.condition)}</span>
         </div>
         <h3 class="post-title">${esc(p.title)}</h3>
         <div class="post-price">${priceHtml(p.price)}</div>
         <div class="post-meta">
-          <span>📍 ${esc(p.city || 'کابل')}</span>
+          <span>📍 ${esc(p.city || "کابل")}</span>
           <span>⏳ ${remainingText(p.expiresAt)}</span>
         </div>
       </article>`;
-  }).join('');
-}
+          })
+          .join("");
+      }
 
-function priceHtml(price){
-  const digits = toEnDigits(price || '').replace(/[^\d]/g, '');
-  if (!digits) return 'توافقی';
-  return faNum(Number(digits).toLocaleString('en-US')) + ' افغانی';
-}
+      function priceHtml(price) {
+        const digits = toEnDigits(price || "").replace(/[^\d]/g, "");
+        if (!digits) return "توافقی";
+        return faNum(Number(digits).toLocaleString("en-US")) + " افغانی";
+      }
 
-/* ---------- نشر آگهی ---------- */
-postForm.addEventListener('submit', e => {
-  e.preventDefault();
+      /* =========================================================
+   18) نشر آگهی
+   ========================================================= */
+      async function submitPost(e) {
+        e.preventDefault();
 
-  const title     = $('#fTitle').value.trim();
-  const category  = $('#fCategory').value;
-  const condition = $('#fCondition').value;
-  const price     = $('#fPrice').value.trim();
-  const city      = $('#fCity').value.trim() || 'کابل';
-  const desc      = $('#fDesc').value.trim();
-  const name      = $('#fName').value.trim();
-  const phoneRaw  = $('#fPhone').value.trim();
+        if (!currentUser) {
+          openAuth("login");
+          return;
+        }
+        if (!configReady) {
+          toast("Firebase تنظیم نشده است.", "error");
+          return;
+        }
 
-  if (!title)  { toast('لطفاً عنوان آگهی را بنویسید'); $('#fTitle').focus(); return; }
-  if (!name)   { toast('لطفاً نام خود را بنویسید');    $('#fName').focus();  return; }
-  if (!phoneRaw){ toast('لطفاً شماره تماس را بنویسید'); $('#fPhone').focus(); return; }
+        const btn = $("#submitPost");
+        setLoading(btn, true);
 
-  const phone = toEnDigits(phoneRaw).replace(/[\s\-()]/g, '');
-  if (!/^\+?\d{9,15}$/.test(phone)) {
-    toast('شماره تماس درست نیست (مثلاً ۰۷۰۰۰۰۰۰۰۰)');
-    $('#fPhone').focus();
-    return;
-  }
+        try {
+          const title = $("#fTitle").value.trim();
+          const category = $("#fCategory").value;
+          const condition = $("#fCondition").value;
+          const price = $("#fPrice").value.trim();
+          const city = $("#fCity").value.trim() || "کابل";
+          const desc = $("#fDesc").value.trim();
+          const name = $("#fName").value.trim();
+          const phoneRaw = $("#fPhone").value.trim();
 
-  const checked = postForm.querySelector('input[name="duration"]:checked');
-  const hours = checked ? Number(checked.value) : 168;
-  const now = Date.now();
+          if (!title) {
+            toast("لطفاً عنوان آگهی را بنویسید", "error");
+            $("#fTitle").focus();
+            return;
+          }
+          if (!name) {
+            toast("لطفاً نام خود را بنویسید", "error");
+            $("#fName").focus();
+            return;
+          }
+          if (!phoneRaw) {
+            toast("لطفاً شماره تماس را بنویسید", "error");
+            $("#fPhone").focus();
+            return;
+          }
 
-  posts.unshift({
-    id: 'p' + now + Math.random().toString(36).slice(2, 7),
-    title, category, condition, price, city, desc, name, phone,
-    createdAt: now,
-    expiresAt: now + hours * 3600000,
-    hours
-  });
+          const phone = normalizePhone(phoneRaw);
+          if (!isPhone(phone)) {
+            toast("شماره تماس درست نیست", "error");
+            $("#fPhone").focus();
+            return;
+          }
 
-  savePosts();
+          const checked = $("#postForm").querySelector(
+            'input[name="duration"]:checked',
+          );
+          const hours = checked ? Number(checked.value) : 168;
+          const now = Date.now();
 
-  /* ریست فورم */
-  postForm.reset();
-  $('#fCity').value = 'کابل';
-  const def = postForm.querySelector('input[name="duration"][value="168"]');
-  if (def) def.checked = true;
-  postForm.hidden = true;
+          const docRef = await addDoc(collection(db, "posts"), {
+            title,
+            category,
+            condition,
+            price,
+            city,
+            desc,
+            name,
+            phone,
+            userId: currentUser.uid,
+            userEmail: currentUser.email || "",
+            createdAt: Timestamp.fromMillis(now),
+            expiresAt: Timestamp.fromMillis(now + hours * 3600000),
+            hours,
+          });
 
-  searchQuery = '';
-  searchInput.value = '';
-  clearSearch.hidden = true;
-  activeCat = 'all';
-  buildFilterChips();
+          /* ریست فورم */
+          $("#postForm").reset();
+          $("#fCity").value = "کابل";
+          if (userProfile) {
+            if (userProfile.name) $("#fName").value = userProfile.name;
+            if (userProfile.phone) $("#fPhone").value = userProfile.phone;
+          }
+          const def = $("#postForm").querySelector(
+            'input[name="duration"][value="168"]',
+          );
+          if (def) def.checked = true;
 
-  renderPosts();
-  toast('آگهی شما با موفقیت نشر شد ✅');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+          $("#postForm").hidden = true;
+          $("#composerTrigger").style.display = "flex";
 
-/* ---------- باز/بسته کردن فورم ---------- */
-composerTrigger.addEventListener('click', () => {
-  postForm.hidden = false;
-  composerTrigger.parentElement.querySelector('.composer-trigger').style.display = 'none';
-  setTimeout(() => $('#fTitle').focus(), 120);
-});
-cancelPost.addEventListener('click', () => {
-  postForm.hidden = true;
-  document.querySelector('.composer-trigger').style.display = 'flex';
-});
+          toast("آگهی شما با موفقیت نشر شد ✅", "success");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } catch (err) {
+          console.error("add post error:", err);
+          toast("خطا در نشر آگهی: " + (err.message || ""), "error");
+        } finally {
+          setLoading(btn, false, "نشر آگهی");
+        }
+      }
 
-/* ---------- جستجو ---------- */
-searchInput.addEventListener('input', () => {
-  searchQuery = searchInput.value;
-  clearSearch.hidden = !searchQuery;
-  renderPosts();
-});
-clearSearch.addEventListener('click', () => {
-  searchInput.value = '';
-  searchQuery = '';
-  clearSearch.hidden = true;
-  renderPosts();
-  searchInput.focus();
-});
+      /* =========================================================
+   19) مودال جزئیات
+   ========================================================= */
+      function openDetail(id) {
+        const p = posts.find((x) => x.id === id);
+        if (!p) return;
+        const c = catById(p.category);
 
-/* ---------- فلتر کتگوری ---------- */
-filterChips.addEventListener('click', e => {
-  const btn = e.target.closest('.fchip');
-  if (!btn) return;
-  activeCat = btn.dataset.cat;
-  filterChips.querySelectorAll('.fchip').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderPosts();
-});
+        let wa = p.phone.replace(/\D/g, "");
+        if (wa.startsWith("0")) wa = "93" + wa.slice(1);
+        else if (!wa.startsWith("93")) wa = "93" + wa;
 
-/* ---------- کلیک روی کارت ---------- */
-postsList.addEventListener('click', e => {
-  const card = e.target.closest('.post');
-  if (!card) return;
-  openDetail(card.dataset.id);
-});
+        const isOwner = currentUser && p.userId === currentUser.uid;
+        const canDelete = isOwner || (currentUser && currentUser.isAdmin);
 
-/* ---------- جزئیات آگهی ---------- */
-function openDetail(id){
-  const p = posts.find(x => x.id === id);
-  if (!p) return;
-  const c = catById(p.category);
-
-  let wa = p.phone.replace(/\D/g, '');
-  if (wa.startsWith('0')) wa = '93' + wa.slice(1);
-  else if (!wa.startsWith('93')) wa = '93' + wa;
-
-  detailBody.innerHTML = `
+        $("#detailBody").innerHTML = `
     <div style="display:flex;align-items:center;gap:12px">
       <div class="cat-emoji">${c.emoji}</div>
       <div>
@@ -723,8 +2234,9 @@ function openDetail(id){
     <h2 class="detail-title">${esc(p.title)}</h2>
 
     <div class="detail-badges">
-      <span class="badge ${p.condition === 'دست دوم' ? 'used' : ''}">${esc(p.condition)}</span>
+      <span class="badge ${p.condition === "دست دوم" ? "used" : ""}">${esc(p.condition)}</span>
       <span class="badge">📍 ${esc(p.city)}</span>
+      ${isOwner ? '<span class="badge admin">آگهی شما</span>' : ""}
     </div>
 
     <div class="detail-price">
@@ -732,7 +2244,7 @@ function openDetail(id){
       <small>قیمت</small>
     </div>
 
-    ${p.desc ? `<div class="detail-desc">${esc(p.desc)}</div>` : ''}
+    ${p.desc ? `<div class="detail-desc">${esc(p.desc)}</div>` : ""}
 
     <div class="info-list">
       <div class="info-row"><span class="ico">👤</span><span>${esc(p.name)}</span></div>
@@ -746,74 +2258,214 @@ function openDetail(id){
       <button class="btn copy" data-copy="${esc(p.phone)}">📋 کاپی کردن شماره تماس</button>
     </div>
 
+    ${
+      canDelete
+        ? `
+      <div class="admin-actions">
+        <button class="btn danger" data-delete="${p.id}">🗑️ حذف آگهی</button>
+      </div>`
+        : ""
+    }
+
     <div class="expire-note">
       ⏳ این آگهی ${remainingText(p.expiresAt)} و بعد از آن به صورت خودکار حذف می‌شود.
     </div>
   `;
 
-  detailModal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+        $("#detailModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
 
-function closeDetailModal(){
-  detailModal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-closeDetail.addEventListener('click', closeDetailModal);
-detailModal.addEventListener('click', e => {
-  if (e.target === detailModal) closeDetailModal();
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && detailModal.classList.contains('open')) closeDetailModal();
-});
+      function closeDetailModal() {
+        $("#detailModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
 
-/* ---------- کاپی شماره ---------- */
-detailBody.addEventListener('click', e => {
-  const btn = e.target.closest('[data-copy]');
-  if (!btn) return;
-  copyText(btn.dataset.copy);
-});
-function copyText(text){
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text)
-      .then(() => toast('شماره کاپی شد ✅'))
-      .catch(() => fallbackCopy(text));
-  } else {
-    fallbackCopy(text);
-  }
-}
-function fallbackCopy(text){
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.position = 'fixed';
-  ta.style.opacity = '0';
-  document.body.appendChild(ta);
-  ta.select();
-  try {
-    document.execCommand('copy');
-    toast('شماره کاپی شد ✅');
-  } catch (e) {
-    toast('کاپی نشد، لطفاً دستی بنویسید');
-  }
-  document.body.removeChild(ta);
-}
+      async function deletePost(id) {
+        if (!confirm("آیا مطمئن هستید که می‌خواهید این آگهی را حذف کنید؟"))
+          return;
+        try {
+          await deleteDoc(doc(db, "posts", id));
+          toast("آگهی حذف شد ✅", "success");
+          closeDetailModal();
+        } catch (e) {
+          console.error("delete error:", e);
+          toast("خطا در حذف آگهی", "error");
+        }
+      }
 
-/* ---------- شروع ---------- */
-function init(){
-  buildDurationChips();
-  buildCategorySelect();
-  buildFilterChips();
-  loadPosts();
-  pruneExpired();
-  renderPosts();
+      /* =========================================================
+   20) کاپی
+   ========================================================= */
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard
+            .writeText(text)
+            .then(() => toast("شماره کاپی شد ✅", "success"))
+            .catch(() => fallbackCopy(text));
+        } else {
+          fallbackCopy(text);
+        }
+      }
+      function fallbackCopy(text) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+          toast("شماره کاپی شد ✅", "success");
+        } catch (e) {
+          toast("کاپی نشد، لطفاً دستی بنویسید", "error");
+        }
+        document.body.removeChild(ta);
+      }
 
-  /* هر ۳۰ ثانیه: حذف آگهی‌های منقضی و بروزرسانی زمان‌ها */
-  setInterval(() => {
-    pruneExpired();
-    renderPosts();
-  }, 30000);
-}
-init();
-</script>
-</body>
+      /* =========================================================
+   21) رویدادها (Events)
+   ========================================================= */
+
+      /* --- احراز هویت --- */
+      $("#authClose").addEventListener("click", closeAuth);
+      $("#authModal").addEventListener("click", (e) => {
+        if (e.target.id === "authModal") closeAuth();
+      });
+      $("#tabLogin").addEventListener("click", () => switchAuthTab("login"));
+      $("#tabSignup").addEventListener("click", () => switchAuthTab("signup"));
+      $("#switchToSignup").addEventListener("click", () =>
+        switchAuthTab("signup"),
+      );
+      $("#switchToLogin").addEventListener("click", () =>
+        switchAuthTab("login"),
+      );
+      $("#loginForm").addEventListener("submit", doLogin);
+      $("#signupForm").addEventListener("submit", doSignup);
+
+      /* --- باز/بسته کردن فورم آگهی --- */
+      $("#composerTrigger").addEventListener("click", () => {
+        if (!currentUser) {
+          openAuth("login");
+          return;
+        }
+        const form = $("#postForm");
+        form.hidden = false;
+        $("#composerTrigger").style.display = "none";
+        if (userProfile) {
+          if (userProfile.name && !$("#fName").value)
+            $("#fName").value = userProfile.name;
+          if (userProfile.phone && !$("#fPhone").value)
+            $("#fPhone").value = userProfile.phone;
+        }
+        setTimeout(() => $("#fTitle").focus(), 120);
+      });
+      $("#cancelPost").addEventListener("click", () => {
+        $("#postForm").hidden = true;
+        $("#composerTrigger").style.display = "flex";
+      });
+
+      /* --- پیام ورود در باکس آگهی --- */
+      $("#noticeLogin").addEventListener("click", () => openAuth("login"));
+      $("#noticeSignup").addEventListener("click", () => openAuth("signup"));
+
+      /* --- نشر آگهی --- */
+      $("#postForm").addEventListener("submit", submitPost);
+
+      /* --- جستجو --- */
+      $("#searchInput").addEventListener("input", () => {
+        searchQuery = $("#searchInput").value;
+        $("#clearSearch").hidden = !searchQuery;
+        renderPosts();
+      });
+      $("#clearSearch").addEventListener("click", () => {
+        $("#searchInput").value = "";
+        searchQuery = "";
+        $("#clearSearch").hidden = true;
+        renderPosts();
+        $("#searchInput").focus();
+      });
+
+      /* --- فلتر کتگوری --- */
+      $("#filterChips").addEventListener("click", (e) => {
+        const btn = e.target.closest(".fchip");
+        if (!btn) return;
+        activeCat = btn.dataset.cat;
+        $("#filterChips")
+          .querySelectorAll(".fchip")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderPosts();
+      });
+
+      /* --- کلیک روی کارت آگهی --- */
+      $("#postsList").addEventListener("click", (e) => {
+        const card = e.target.closest(".post");
+        if (!card) return;
+        openDetail(card.dataset.id);
+      });
+
+      /* --- بستن مودال جزئیات --- */
+      $("#closeDetail").addEventListener("click", closeDetailModal);
+      $("#detailModal").addEventListener("click", (e) => {
+        if (e.target.id === "detailModal") closeDetailModal();
+      });
+
+      /* --- دکمه‌های داخل مودال جزئیات --- */
+      $("#detailBody").addEventListener("click", (e) => {
+        const copyBtn = e.target.closest("[data-copy]");
+        if (copyBtn) {
+          copyText(copyBtn.dataset.copy);
+          return;
+        }
+
+        const delBtn = e.target.closest("[data-delete]");
+        if (delBtn) {
+          deletePost(delBtn.dataset.delete);
+          return;
+        }
+      });
+
+      /* --- Esc برای بستن مودال‌ها --- */
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          if ($("#detailModal").classList.contains("open")) closeDetailModal();
+          if ($("#authModal").classList.contains("open")) closeAuth();
+        }
+      });
+
+      /* =========================================================
+   22) شروع
+   ========================================================= */
+      function init() {
+        buildDurationChips();
+        buildCategorySelect();
+        buildFilterChips();
+
+        if (!configReady) {
+          /* نمایش پیام هشدار در بالای صفحه */
+          const warn = document.createElement("div");
+          warn.className = "config-warning";
+          warn.innerHTML = `
+      ⚠️ <b>اتصال Firebase تنظیم نشده است.</b><br>
+      برای فعال‌سازی ذخیره‌سازی داده‌ها، مقادیر <code>firebaseConfig</code> را در کد جایگزین کنید.<br>
+      از <code>Firebase Console → Project Settings → Your apps → Web</code> دریافت کنید.
+    `;
+          document.body.insertBefore(
+            warn,
+            document.body.firstChild.nextSibling,
+          );
+        }
+
+        renderAuthArea();
+        watchAuth();
+
+        /* هر ۳۰ ثانیه: بروزرسانی زمان باقی‌مانده */
+        setInterval(() => {
+          if (postsLoaded) renderPosts();
+        }, 30000);
+      }
+      init();
+    </script>
+  </body>
 </html>
